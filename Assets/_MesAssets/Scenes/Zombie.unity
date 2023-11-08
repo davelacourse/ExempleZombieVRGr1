@@ -446,7 +446,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 60790834, guid: bd5763ea029067749b997adc8760f372, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bd5763ea029067749b997adc8760f372, type: 3}
 --- !u!1 &60790816 stripped
 GameObject:
@@ -454,7 +455,13 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 60790815}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &60790817
+--- !u!4 &60790817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 369647544, guid: bd5763ea029067749b997adc8760f372,
+    type: 3}
+  m_PrefabInstance: {fileID: 60790815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &60790819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -463,7 +470,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 60790816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1828411027
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &60790820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60790816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89effecaa2522c479f079a5ed3a847a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 1174055626}
@@ -510,8 +536,8 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 60790818}
-        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+      - m_Target: {fileID: 2124881298}
+        m_TargetAssemblyTypeName: GunAlternative, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 1
         m_Arguments:
@@ -563,7 +589,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -601,18 +627,50 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &60790818 stripped
+--- !u!114 &60790821
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 60790834, guid: bd5763ea029067749b997adc8760f372,
-    type: 3}
-  m_PrefabInstance: {fileID: 60790815}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60790816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b805cbd19d460fe4b9d4bee3973acef9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0aa53d21e7480e2479d82dd767f958dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNetworkGrabbed:
+    m_InternalValue: 0
+--- !u!114 &60790822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60790816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90d44ee65baa4740a4d51f44f4bece3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1001 &66207361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2429,13 +2487,14 @@ GameObject:
   m_Component:
   - component: {fileID: 700300405}
   - component: {fileID: 700300406}
+  - component: {fileID: 700300407}
   m_Layer: 0
   m_Name: Zombie Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &700300405
 Transform:
   m_ObjectHideFlags: 0
@@ -2481,6 +2540,25 @@ MonoBehaviour:
   - {fileID: 1091598629}
   - {fileID: 1949067264}
   - {fileID: 632322137}
+--- !u!114 &700300407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700300404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 4270268876
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &719459075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7167,6 +7245,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.92522144, y: 2.2004375, z: 1.040066}
   m_Center: {x: 0.042309, y: 1.1002188, z: -0.05185297}
+--- !u!82 &2124881297 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 60790835, guid: bd5763ea029067749b997adc8760f372,
+    type: 3}
+  m_PrefabInstance: {fileID: 60790815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2124881298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60790816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aecc7e2293e52d41af9096b93e55b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  bullet: {fileID: 1255866325633988766, guid: a6c1bfc0e2f51f14b9381ae0f5d0d4ae, type: 3}
+  barrel: {fileID: 60790817}
+  audioSource: {fileID: 2124881297}
+  audioClip: {fileID: 8300000, guid: f0e9a8ea099cb374e91f322f3cbf3e0e, type: 3}
 --- !u!1 &2128111229
 GameObject:
   m_ObjectHideFlags: 0

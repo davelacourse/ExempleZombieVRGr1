@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class Gun : MonoBehaviour
+public class Gun : NetworkBehaviour
 {
     public float speed = 40;
     public GameObject bullet;
@@ -12,7 +13,16 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
+        FireServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void FireServerRpc()
+    {
         GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        //Instanciation sur le réseau
+        spawnedBullet.GetComponent<NetworkObject>().Spawn(true);
+
         spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
         audioSource.PlayOneShot(audioClip);
         Destroy(spawnedBullet, 2);
